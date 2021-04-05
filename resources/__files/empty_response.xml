@@ -1,0 +1,13 @@
+<soap:Envelope
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:InvokeResponse
+      xmlns:ns2="http://coma.vodafone.com/WCDAdapterTypes">
+      <MetaData>
+        <Content>
+          <coma xmlns="http://coma.vodafone.com/MetadataTypes" />
+        </Content>
+      </MetaData>
+    </ns2:InvokeResponse>
+  </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,38 @@
+version: "2.4"
+services:
+  mysql_wcd:
+    image: "mysql:5.7"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_PASSWORD: "wcd123"
+      MYSQL_USER: "wcd"
+      MYSQL_DATABASE: "wcddb"
+    ports:
+      - "3308:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  activemq:
+    image: "webcenter/activemq:latest"
+    ports:
+      - "8161:8161"
+      
+    environment:
+      ACTIVEMQ_CONFIG_SCHEDULERENABLED: "true"
+      
+  wcd:
+    image: ${IMAGE:-coma/wcd:latest}
+    depends_on:
+      mysql_wcd:
+        condition: service_healthy
+    ports:
+      - "${PORT:-8090}:8090"
+    environment:
+      DB_URL: "jdbc:mysql://mysql_wcd:3306/wcddb"
+      DB_USERNAME: "wcd"
+      DB_PASSWORD: "wcd123"
+      AMQ_URL: "tcp://activemq:61616"
+      JAVA_OPTS: "-Dspring.profiles.active=dev -Daws.paramstore.enabled=false"
+      

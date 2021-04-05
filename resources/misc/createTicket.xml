@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:StartInvocationChainRequest xmlns:ns2="http://coma.vodafone.com/WCDTypes" xmlns:ns3="http://coma.vodafone.com/WCDAdapterTypes">
+      <AdapterName>opm-adapter</AdapterName>
+      <Footprint>UM</Footprint>
+      <InvocationChainName>createTicket</InvocationChainName>
+      <MetaData>
+        <Content>
+          <ns4:coma xmlns:ns4="http://coma.vodafone.com/MetadataTypes">
+            <ns4:wholesaleCustomer>
+              <ns4:mobilephone>435552381908</ns4:mobilephone>
+              <ns4:email>fault.clearance@test.it</ns4:email>
+              <ns4:wspId>DEU.TEFGER</ns4:wspId>
+              <ns4:lineId>DEU.VFDE.U001207297</ns4:lineId>
+              <ns4:contract>
+                <ns4:contractId>B00000045D</ns4:contractId>
+              </ns4:contract>
+              <ns4:order>
+                <ns4:kindofOrder>Fault Clearance</ns4:kindofOrder>
+                <ns4:plannedExecutionDate>2020-06-15</ns4:plannedExecutionDate>
+                <ns4:externalOrderId>TEF8278660529.1</ns4:externalOrderId>
+                <ns4:orderStatus>Requested</ns4:orderStatus>
+              </ns4:order>
+            </ns4:wholesaleCustomer>
+            <ns4:networkData>
+              <ns4:activationDate>
+                <ns4:technicianDate>2020-06-15</ns4:technicianDate>
+                <ns4:technicianTimeslot>7</ns4:technicianTimeslot>
+              </ns4:activationDate>
+              <ns4:activationDateAgreed>false</ns4:activationDateAgreed>
+              <ns4:faultDescription>It does not work!</ns4:faultDescription>
+              <ns4:installationContact>
+                <ns4:salutation>Herr</ns4:salutation>
+                <ns4:firstname>end</ns4:firstname>
+                <ns4:name>kunde123456</ns4:name>
+                <ns4:mobilephone>435552381908</ns4:mobilephone>
+                <ns4:email>fault.clearance@test.it</ns4:email>
+              </ns4:installationContact>
+            </ns4:networkData>
+          </ns4:coma>
+        </Content>
+        <Modified>2020-06-15T06:55:44.049341Z</Modified>
+        <Version>1</Version>
+      </MetaData>
+    </ns2:StartInvocationChainRequest>
+  </soap:Body>
+</soap:Envelope>

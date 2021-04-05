@@ -1,0 +1,25 @@
+<soap:Envelope
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:StartInvocationChainRequest
+      xmlns:ns2="http://coma.vodafone.com/WCDTypes">
+      <AdapterName>opm-adapter</AdapterName>
+      <Footprint>UM</Footprint>
+      <InvocationChainName>barContract</InvocationChainName>
+      <MetaData>
+        <Content>
+          <coma xmlns="http://coma.vodafone.com/MetadataTypes">
+            <wholesaleCustomer>
+              <internalCustomerId>DEU.VFDE.H001000042</internalCustomerId>
+              <address>
+                <footprint>UM</footprint>
+              </address>
+            </wholesaleCustomer>
+          </coma>
+        </Content>
+        <Modified>2020-09-08T06:45:28.396+02:00</Modified>
+        <Version>1</Version>
+      </MetaData>
+    </ns2:StartInvocationChainRequest>
+  </soap:Body>
+</soap:Envelope>

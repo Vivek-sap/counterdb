@@ -1,0 +1,10 @@
+version: "2.4"
+services:
+  activemq:
+    image: "webcenter/activemq:latest"
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+
+    environment:
+      ACTIVEMQ_CONFIG_SCHEDULERENABLED: "true"

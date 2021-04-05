@@ -1,0 +1,24 @@
+version: "2.4"
+services:
+  mysql_wcd:
+    image: "mysql:5.7"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_PASSWORD: "wcd123"
+      MYSQL_USER: "wcd"
+      MYSQL_DATABASE: "wcddb"
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  activemq:
+    image: "webcenter/activemq:latest"
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+
+    environment:
+      ACTIVEMQ_CONFIG_SCHEDULERENABLED: "true"

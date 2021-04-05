@@ -1,0 +1,41 @@
+<soap:Envelope
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:InvokeRequest
+      xmlns:ns2="http://coma.vodafone.com/WCDAdapterTypes">
+      <InvocationId>2</InvocationId>
+      <Footprint>UM</Footprint>
+      <InvocationChainName>rejectOrderRequestFromFault
+      </InvocationChainName>
+      <Action>rejectOrderRequestFromFault</Action>
+      <MetaData>
+        <Content>
+          <coma xmlns="http://coma.vodafone.com/MetadataTypes"
+            xmlns:ns2="http://coma.vodafone.com/WCDTypes">
+            <wholesaleCustomer>
+              <internalCustomerId>DEU.VFDE.H001000042</internalCustomerId>
+              <address>
+                <footprint>UM</footprint>
+              </address>
+            </wholesaleCustomer>
+            <adapterData>
+              <adapter>
+                <name>WCD</name>
+                <Property>
+                  <key>errorCode</key>
+                  <value>CONTRACT_BARRED</value>
+                </Property>
+                <Property>
+                  <key>errorDetails</key>
+                  <value>Something went wrong</value>
+                </Property>
+              </adapter>
+            </adapterData>
+          </coma>
+        </Content>
+        <Modified>2020-08-30T00:00:00Z</Modified>
+        <Version>1</Version>
+      </MetaData>
+    </ns2:InvokeRequest>
+  </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,16 @@
+<soap:Envelope
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <soap:Fault>
+      <faultcode>soap:Server</faultcode>
+      <faultstring>Exception thrown by Adapter with message</faultstring>
+      <detail>
+        <ns2:TechnicalFault
+          xmlns:ns2="http://coma.vodafone.com/WCDAdapterTypes">
+          <errorCode>CONTRACT_BARRED</errorCode>
+          <errorMessage>Something went wrong</errorMessage>
+        </ns2:TechnicalFault>
+      </detail>
+    </soap:Fault>
+  </soap:Body>
+</soap:Envelope>

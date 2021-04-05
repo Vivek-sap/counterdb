@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" id="b33e387f-9152-4605-ae6f-f579e586ffb6" activeEnvironment="Default" name="wcd" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL">
+  <con:settings/>
+  <con:interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:WsdlInterface" id="b08cbb22-5f49-47c3-ba35-26b3e4bfa233" wsaVersion="NONE" name="WcdPortImplServiceSoapBinding" type="wsdl" bindingName="{http://ws.wcd.coma.vodafone.com/}WcdPortImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://DESVC.tst_coma_dev:d_Va20*791@wcd-master-default.internal.dev.coma-vf.de/services/wcd?WSDL">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart="https://DESVC.tst_coma_dev:d_Va20*791@wcd-master-default.internal.dev.coma-vf.de/services/wcd?WSDL">
+      <con:part>
+        <con:url>https://DESVC.tst_coma_dev:d_Va20*791@wcd-master-default.internal.dev.coma-vf.de/services/wcd?WSDL</con:url>
+        <con:content><![CDATA[<wsdl:definitions name="WcdPortImplService" targetNamespace="http://ws.wcd.coma.vodafone.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.wcd.coma.vodafone.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://coma.vodafone.com/WCD">
+  <wsdl:import location="https://wcd-master-default.internal.dev.coma-vf.de/services/wcd?wsdl=WCDServicePortType.wsdl" namespace="http://coma.vodafone.com/WCD"></wsdl:import>
+  <wsdl:binding name="WcdPortImplServiceSoapBinding" type="ns1:WCDServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="StartInvocationChain">
+      <soap:operation soapAction="StartInvocationChain" style="document"/>
+      <wsdl:input name="StartInvocationChain">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="StartInvocationChainResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TechnicalFaultMessage">
+        <soap:fault name="TechnicalFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetaData">
+      <soap:operation soapAction="GetMetaData" style="document"/>
+      <wsdl:input name="GetMetaData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetMetaDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TechnicalFaultMessage">
+        <soap:fault name="TechnicalFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WcdPortImplService">
+    <wsdl:port binding="tns:WcdPortImplServiceSoapBinding" name="WcdPortImplPort">
+      <soap:address location="https://wcd-master-default.internal.dev.coma-vf.de/services/wcd"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+        <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+      </con:part>
+      <con:part>
+        <con:url>https://wcd-master-default.internal.dev.coma-vf.de/services/wcd?wsdl=WCDServicePortType.wsdl</con:url>
+        <con:content><![CDATA[<wsdl:definitions name="WCDServicePortType" targetNamespace="http://coma.vodafone.com/WCD" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://coma.vodafone.com/WCDTypes" xmlns:ns1="http://coma.vodafone.com/WCD">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://coma.vodafone.com/WCDTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://coma.vodafone.com/CommonTypes" xmlns="http://coma.vodafone.com/WCDTypes">
+      <xs:import namespace="http://coma.vodafone.com/CommonTypes"/>
+      <xs:element name="GetMetadataRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="InvocationId" type="xs:nonNegativeInteger"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMetadataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MetaData" type="ns1:MetaDataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StartInvocationChainRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AdapterName" type="xs:string"/>
+            <xs:element name="Footprint" type="xs:string"/>
+            <xs:element name="InvocationChainName" type="xs:string"/>
+            <xs:element name="MetaData" type="ns1:MetaDataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StartInvocationChainResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="InvocationId" type="xs:nonNegativeInteger"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TechnicalFault" nillable="true" type="ns1:GenericErrorType"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://coma.vodafone.com/WCDAdapterTypes" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://coma.vodafone.com/CommonTypes">
+      <xs:import namespace="http://coma.vodafone.com/CommonTypes"/>
+      <xs:element name="TechnicalFault" type="ns1:GenericErrorType"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://coma.vodafone.com/CommonTypes" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://coma.vodafone.com/CommonTypes">
+      <xs:complexType name="MetaDataType">
+        <xs:sequence>
+          <xs:element name="Content" type="tns:ContentType"/>
+          <xs:element minOccurs="0" name="Modified" type="xs:dateTime"/>
+          <xs:element name="Version" type="xs:nonNegativeInteger"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContentType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GenericErrorType">
+        <xs:sequence>
+          <xs:element name="timestamp" type="xs:dateTime"/>
+          <xs:element name="errorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="causingService" type="xs:string"/>
+          <xs:element minOccurs="0" name="shouldRetry" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="abortChain" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="StartInvocationChain">
+    <wsdl:part element="ns2:StartInvocationChainRequest" name="payload"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetMetaDataResponse">
+    <wsdl:part element="ns2:GetMetadataResponse" name="payload"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TechnicalFaultMessage">
+    <wsdl:part element="ns2:TechnicalFault" name="TechnicalFaultMessage"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="StartInvocationChainResponse">
+    <wsdl:part element="ns2:StartInvocationChainResponse" name="payload"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetMetaData">
+    <wsdl:part element="ns2:GetMetadataRequest" name="payload"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WCDServicePortType">
+    <wsdl:operation name="StartInvocationChain">
+      <wsdl:input message="ns1:StartInvocationChain" name="StartInvocationChain"></wsdl:input>
+      <wsdl:output message="ns1:StartInvocationChainResponse" name="StartInvocationChainResponse"></wsdl:output>
+      <wsdl:fault message="ns1:TechnicalFaultMessage" name="TechnicalFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetaData">
+      <wsdl:input message="ns1:GetMetaData" name="GetMetaData"></wsdl:input>
+      <wsdl:output message="ns1:GetMetaDataResponse" name="GetMetaDataResponse"></wsdl:output>
+      <wsdl:fault message="ns1:TechnicalFaultMessage" name="TechnicalFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content>
+        <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://localhost:8090/services/wcd</con:endpoint>
+      <con:endpoint>https://wcd-master-default.internal.dev.coma-vf.de/services/wcd</con:endpoint>
+    </con:endpoints>
+    <con:operation id="2fa32831-0b87-4eb3-aa6d-a2f6c31d2adc" isOneWay="false" action="GetMetaData" name="GetMetaData" bindingOperationName="GetMetaData" type="Request-Response" outputName="GetMetaDataResponse" inputName="GetMetaData" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+      <con:settings/>
+      <con:call id="bdeaaccc-d313-478a-b857-4e62b1596fce" name="Request 1">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8090/services/wcd</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wcd="http://coma.vodafone.com/WCDTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wcd:GetMetadataRequest>
+         <InvocationId>?</InvocationId>
+      </wcd:GetMetadataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="GetMetaData"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+    </con:operation>
+    <con:operation id="0e64681b-ec9c-4664-b740-9e83c998503f" isOneWay="false" action="StartInvocationChain" name="StartInvocationChain" bindingOperationName="StartInvocationChain" type="Request-Response" outputName="StartInvocationChainResponse" inputName="StartInvocationChain" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+      <con:settings/>
+      <con:call id="db83bf82-3b4b-42f4-902c-2169988de70d" name="Request 1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/&gt;</con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8090/services/wcd</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wcd="http://coma.vodafone.com/WCDTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wcd:StartInvocationChainRequest>
+         <AdapterName>?</AdapterName>
+         <Footprint>?</Footprint>
+         <InvocationChainName>?</InvocationChainName>
+         <MetaData>
+            <Content>
+               <!--You may enter ANY elements at this point-->
+            </Content>
+            <!--Optional:-->
+            <Modified>?</Modified>
+            <Version>?</Version>
+         </MetaData>
+      </wcd:StartInvocationChainRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="StartInvocationChain"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+      <con:call id="24776f15-1d13-4241-b6ac-137d15a17267" name="Request 2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/&gt;</con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://wcd-master-default.internal.dev.coma-vf.de/services/wcd</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wcd="http://coma.vodafone.com/WCDTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wcd:StartInvocationChainRequest>
+         <AdapterName>opm-adapter</AdapterName>
+         <Footprint>VKD</Footprint>
+         <InvocationChainName>createTicket</InvocationChainName>
+         <MetaData>
+            <Content>
+                <!--You may enter ANY elements at this point-->
+            </Content>
+            <!--Optional:-->
+            <Modified>${=new Date().format("yyyy-MM-dd\'T\'HH:mm:ss.SSS")}+01:00</Modified>
+            <Version>1</Version>
+         </MetaData>
+      </wcd:StartInvocationChainRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="StartInvocationChain"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+      <con:call id="92aeeb81-0b08-49a9-810d-9d52a9b114a0" name="Copy of Request 2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/&gt;</con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://wcd-master-default.internal.dev.coma-vf.de/services/wcd</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wcd="http://coma.vodafone.com/WCDTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wcd:StartInvocationChainRequest>
+         <AdapterName>opm-adapter</AdapterName>
+         <Footprint>VKD</Footprint>
+         <InvocationChainName>createTicket</InvocationChainName>
+         <MetaData>
+            <Content>
+                <!--You may enter ANY elements at this point-->
+            </Content>
+            <!--Optional:-->
+            <Modified>${=new Date().format("yyyy-MM-dd\'T\'HH:mm:ss.SSS")}+01:00</Modified>
+            <Version>1</Version>
+         </MetaData>
+      </wcd:StartInvocationChainRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="StartInvocationChain"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+    </con:operation>
+  </con:interface>
+  <con:interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RestService" id="2769d38e-ac05-404e-91f9-309bd15e9663" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://wcd-ccbscoma-1136-default.internal.dev.coma-vf.de" type="rest">
+    <con:settings/>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>http://localhost:8090</con:endpoint>
+      <con:endpoint>https://wcd-master-default.internal.dev.coma-vf.de</con:endpoint>
+    </con:endpoints>
+    <con:resource name="ExternalOrderId" path="/order/externalOrderId/{externalOrderId}" id="426d287e-1892-4480-8dda-07d01a5d1850">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>externalOrderId</con:name>
+          <con:value/>
+          <con:style>TEMPLATE</con:style>
+          <con:default/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>page</con:name>
+          <con:style>QUERY</con:style>
+        </con:parameter>
+        <con:parameter>
+          <con:name>size</con:name>
+          <con:value/>
+          <con:style>QUERY</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="ExternalOrderId 1" id="e801a65d-e1c5-423c-8492-8d706a9c2ccc" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>Response</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/plain; charset=utf-8</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/hal+json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:tef="https://wcd-ccbscoma-1136-default.internal.dev.coma-vf.de/order/externalOrderId/TEF987654898.1">tef:Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="a0a323a0-014c-47ec-b84f-0233ea1bd58e" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/&gt;</con:setting>
+          </con:settings>
+          <con:endpoint>https://wcd-master-default.internal.dev.coma-vf.de</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://wcd-ccbscoma-1136-default.internal.dev.coma-vf.de/order/externalOrderId/TEF987654898.1</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="size" value="15"/>
+            <con:entry key="externalOrderId" value="TEF3085373120.1"/>
+            <con:entry key="page" value="0"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>externalOrderId</con:entry>
+            <con:entry>page</con:entry>
+            <con:entry>size</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="LineId" path="/order/lineId/{lineId}" id="40e30975-2b88-40d8-9c07-0a777f86f66b">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>lineId</con:name>
+          <con:value>lineId</con:value>
+          <con:style>TEMPLATE</con:style>
+          <con:default>lineId</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>page</con:name>
+          <con:value/>
+          <con:style>QUERY</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>size</con:name>
+          <con:value/>
+          <con:style>QUERY</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Method 1" id="16e7199b-ec5d-40db-83f2-98e6c8a7d5db" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/hal+json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:ns="http://localhost/order/lineId/12345">ns:Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="eb30b6b4-0763-4e95-9b90-2133794bbbb7" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/&gt;</con:setting>
+          </con:settings>
+          <con:endpoint>https://wcd-master-default.internal.dev.coma-vf.de</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://localhost/order/lineId/12345</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="size" value="15"/>
+            <con:entry key="lineId" value="DEU.VFDE.K001001806"/>
+            <con:entry key="page" value="0"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>lineId</con:entry>
+            <con:entry>page</con:entry>
+            <con:entry>size</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="order" path="/order/{orderId}" id="de16005f-20c1-4bac-86b4-925159218c60">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>orderId</con:name>
+          <con:value/>
+          <con:style>TEMPLATE</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Method 1" id="75c12e15-0e2d-4ed8-be94-b877e8968c3a" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/hal+json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:ns="https://wcd-master-default.internal.dev.coma-vf.de/order/693599">ns:Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="e1c38f67-a3f8-413a-ae96-52f85249ed66" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/&gt;</con:setting>
+          </con:settings>
+          <con:endpoint>https://wcd-master-default.internal.dev.coma-vf.de</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://wcd-master-default.internal.dev.coma-vf.de/order/693599</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry xmlns="http://eviware.com/soapui/config" key="orderId" value="693599"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>orderId</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:sensitiveInformation/>
+</con:soapui-project>
