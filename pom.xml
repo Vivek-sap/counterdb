@@ -18,10 +18,10 @@
 		<java.version>11</java.version>
 		<unit-tests.skip>false</unit-tests.skip>
 		<integration-tests.skip>false</integration-tests.skip>
-		<integration-tests.active.profile>testcluster</integration-tests.active.profile>
+		<integration-tests.active.profile>testlocal</integration-tests.active.profile>
 		<project.artifact.name>${project.artifactId}</project.artifact.name>
 		<build.number>LOCAL</build.number>
-		<docker.image.prefix>coma</docker.image.prefix>
+		<docker.image.prefix>sap</docker.image.prefix>
 		<docker.image.tag>latest</docker.image.tag>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -79,7 +79,11 @@
 			<artifactId>rest-assured</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-freemarker</artifactId>
+      <scope>test</scope>
+    </dependency>
 
 	</dependencies>
 
@@ -97,20 +101,11 @@
 						</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
-			<!-- build docker file with mvn -->
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.4.9</version>
-				<configuration>
-					<repository>${docker.image.prefix}/${project.artifactId}
-					</repository>
-					<tag>${docker.image.tag}</tag>
-					<pullNewerImage>false</pullNewerImage>
-					<verbose>true</verbose>
-				</configuration>
-			</plugin>
+			</plugin>			
+			 <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+      </plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<configuration>
@@ -118,6 +113,7 @@
 					<argLine>-Dspring.profiles.active=${integration-tests.active.profile}</argLine>
 					<includes>
 						<include>**/*IT.java</include>
+						<include>**/*IntegrationTest.java</include>
 					</includes>
 				</configuration>
 				<executions>
@@ -129,7 +125,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>

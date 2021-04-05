@@ -14,14 +14,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import com.sap.counterdb.CdbsApplication;
 import com.sap.counterdb.TestDataSourceHandler;
 import com.sap.counterdb.entities.CounterEntity;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = { com.sap.counterdb.CdbsApplication.class })
-
+@SpringBootTest(classes = { CdbsApplication.class })
 @Slf4j
 public class CounterRepositoryIT {
 

@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sap.counterdb.data.CounterData;
 import com.sap.counterdb.service.CounterService;
 
-//import io.swagger.v3.oas.annotations.Operation;
-//import io.swagger.v3.oas.annotations.Parameter;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -24,21 +22,24 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Validated
 public class CounterController {
-	
+
 	@Autowired
-    private CounterService counterService;
-	
-	   // @Operation(summary = "update the counter in database")
-	    @PatchMapping(path = "{val}", consumes = MediaType.APPLICATION_JSON_VALUE)
-	    public ResponseEntity<CounterData> getFaultClearanceOrder(@Valid @PathVariable int val) {
-	    	return ResponseEntity.ok(counterService.updateCounter(val));
-	    }
-	    
-	   // @Operation(summary = "Retrieve information about counter.")
-	    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	    public ResponseEntity<CounterData> getCounter() {
-	            log.debug("Fetching the counter information ");
-	            return ResponseEntity.ok(counterService.getCounterData());
-	    }
+	private CounterService counterService;
+
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CounterData> getCounter() {
+		log.debug("Fetching the counter information ");
+		return ResponseEntity.ok(counterService.getCounterData());
+	}
+
+	@PatchMapping(path = "increment/{val}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CounterData> incrementCounter(@Valid @PathVariable int val) {
+		return ResponseEntity.ok(counterService.updateCounter(val,true));
+	}
+
+	@PatchMapping(path = "decrement/{val}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CounterData> decrementCounter(@Valid @PathVariable int val) {
+		return ResponseEntity.ok(counterService.updateCounter(val,false));
+	}
 
 }

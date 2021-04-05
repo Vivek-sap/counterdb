@@ -29,13 +29,15 @@ public class CounterService {
 		this.transientDataAccessExceptionRetryTemplate = transientDataAccessExceptionRetryTemplate;
 	}
 
+	// Flag Modifier is used to differentiate between increment and decrement
 	@Transactional
-	public CounterData updateCounter(int val) {
+	public CounterData updateCounter(int val, boolean flagModifier) {
 		log.debug("Started updating counter Entity......{}", val);
 
 		return transientDataAccessExceptionRetryTemplate.execute(retryContext -> {
 			CounterEntity en = getCounter();
-			en.setCounterValue(val);
+			int newValue = flagModifier?en.getCounterValue()+val:en.getCounterValue()-val;
+			en.setCounterValue(newValue);
 		    counterRepository.save(en);
 			return convertEntityToData(en);
 		});

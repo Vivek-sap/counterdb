@@ -46,11 +46,19 @@ public class CounterControllerIT {
 	}
 
 	@Test
-	public void updateCounter() throws Exception {
+	public void incrementCounter() throws Exception {
 
 		given().port(randomServerPort).when().contentType(ContentType.JSON).log().all().pathParam("val", 5)
-				.patch("/v1/counter/{val}").then().log().all().statusCode(HttpStatus.OK.value())
+				.patch("/v1/counter/increment/{val}").then().log().all().statusCode(HttpStatus.OK.value())
 				.body("counterValue", equalTo(5));
+	}
+	
+	@Test
+	public void decrementCounter() throws Exception {
+
+		given().port(randomServerPort).when().contentType(ContentType.JSON).log().all().pathParam("val", 5)
+				.patch("/v1/counter/decrement/{val}").then().log().all().statusCode(HttpStatus.OK.value())
+				.body("counterValue", equalTo(0));
 	}
 
 	private CounterEntity createCounterInDb(CounterEntity entity) {
