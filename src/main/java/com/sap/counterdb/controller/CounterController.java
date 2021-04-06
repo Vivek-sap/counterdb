@@ -1,4 +1,4 @@
-package com.sap.counterdb.controller;
+ package com.sap.counterdb.controller;
 
 import javax.validation.Valid;
 
