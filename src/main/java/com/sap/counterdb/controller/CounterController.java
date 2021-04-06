@@ -47,7 +47,7 @@ public class CounterController {
 		return ResponseEntity.ok(counterService.updateCounter(val,false));
 	}
 
-	@GetMapping(path = "namespace/{namespace}/label/labelValue/{labelkey}/labelValue/{labelValue}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "namespace/{namespace}/label/labelkey/{labelkey}/labelValue/{labelValue}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ControllerData> getDeploymentByNamespaceAndLabel(@Valid @PathVariable String namespace,
 			@Valid @PathVariable String labelkey, @Valid @PathVariable String labelValue) {
 		log.info("Fetching the pod deployment information by namespace={} and labelkey={} and labelValue={}"  +  namespace);
