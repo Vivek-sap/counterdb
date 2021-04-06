@@ -22,7 +22,7 @@ public class CustomControllerService {
 	 private @Setter RestTemplate restTemplate;
 
 	    public CustomControllerService(@Value("${custom.controller.url}") String controllerUrl) {
-	        log.debug("controllerUrl={}", controllerUrl);
+	        log.info("controllerUrl={}", controllerUrl);
 
 	        RestTemplateBuilder restTemplateBuilder =
 	            new RestTemplateBuilder().requestFactory(() -> new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()))	                
@@ -37,7 +37,7 @@ public class CustomControllerService {
 		  
 		  log.info("Getting custom controller deployment information by namespace, labelkey and labelValue {}", namespace, labelkey, labelValue);
 		  try {
-			 res =  restTemplate.getForObject("namespace/{namespace}/label/labelkey/{labelkey}/labelValue/{labelValue}", String.class, namespace,
+			 res =  restTemplate.getForObject("/namespace/{namespace}/label/labelkey/{labelkey}/labelValue/{labelValue}", String.class, namespace,
 					  labelkey, labelValue);
 			validateResult(res);
 			
