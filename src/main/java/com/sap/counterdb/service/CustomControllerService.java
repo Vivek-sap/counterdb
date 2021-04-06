@@ -12,13 +12,14 @@ import com.sap.counterdb.exceptions.BadRequestException;
 import com.sap.counterdb.exceptions.ErrorCode;
 import com.sap.counterdb.exceptions.ErrorSource;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
 public class CustomControllerService {
 
-	 private RestTemplate restTemplate;
+	 private @Setter RestTemplate restTemplate;
 
 	    public CustomControllerService(@Value("${custom.controller.url}") String controllerUrl) {
 	        log.debug("controllerUrl={}", controllerUrl);
