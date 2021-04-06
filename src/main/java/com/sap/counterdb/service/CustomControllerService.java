@@ -35,9 +35,9 @@ public class CustomControllerService {
 		  
 		  String res = null;
 		  
-		  log.info("Getting custom controller deployment information by namespace, labelkey and label Value {}", namespace, labelkey, labelValue);
+		  log.info("Getting custom controller deployment information by namespace, labelkey and labelValue {}", namespace, labelkey, labelValue);
 		  try {
-			 res =  restTemplate.getForObject("namespace/{namespace}/label/labelValue/{labelkey}/labelValue/{labelValue}", String.class, namespace,
+			 res =  restTemplate.getForObject("namespace/{namespace}/label/labelkey/{labelkey}/labelValue/{labelValue}", String.class, namespace,
 					  labelkey, labelValue);
 			validateResult(res);
 			
