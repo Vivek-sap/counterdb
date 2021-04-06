@@ -15,7 +15,7 @@
 	<name>cdbs</name>
 	<description>servicce to access mysql counter db</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<unit-tests.skip>false</unit-tests.skip>
 		<integration-tests.skip>false</integration-tests.skip>
 		<integration-tests.active.profile>testlocal</integration-tests.active.profile>
