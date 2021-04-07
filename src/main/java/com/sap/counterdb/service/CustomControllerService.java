@@ -37,7 +37,7 @@ public class CustomControllerService {
 		  
 		  log.info("Getting custom controller deployment information by namespace, labelkey and labelValue {}", namespace, labelkey, labelValue);
 		  try {
-			 res =  restTemplate.getForObject("namespace/{namespace}/label/labelValue/{labelkey}/labelValue/{labelValue}", ControllerData.class, namespace,
+			 res =  restTemplate.getForObject("/namespace/{namespace}/label/labelkey/{labelkey}/labelValue/{labelValue}", ControllerData.class, namespace,
 					  labelkey, labelValue);
 			validateResult(res);
 			
