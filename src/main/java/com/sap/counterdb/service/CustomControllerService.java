@@ -33,11 +33,11 @@ public class CustomControllerService {
 	    
 	  public ControllerData getControllerInfo(String namespace, String labelkey, String labelValue) {
 		  
-		  String res = null;
+		  ControllerData res = null;
 		  
 		  log.info("Getting custom controller deployment information by namespace, labelkey and labelValue {}", namespace, labelkey, labelValue);
 		  try {
-			 res =  restTemplate.getForObject("/namespace/{namespace}/label/labelkey/{labelkey}/labelValue/{labelValue}", String.class, namespace,
+			 res =  restTemplate.getForObject("namespace/{namespace}/label/labelValue/{labelkey}/labelValue/{labelValue}", ControllerData.class, namespace,
 					  labelkey, labelValue);
 			validateResult(res);
 			
@@ -46,11 +46,11 @@ public class CustomControllerService {
 			log.error("{}", e.getMessage(), e);
 		}
 		 
-		  return new ControllerData(res);
+		  return res;
 	  }
 	
-	  private void validateResult(String result) {
-	        if (result == null) {
+	  private void validateResult(ControllerData result) {
+	        if (result == null || result.getDeploymentCount() == null) {
 	            throw new BadRequestException(ErrorSource.SERVICE, ErrorCode.INVALID_DATA, "Some information related to pod is invalid");
 	        }
 	  }

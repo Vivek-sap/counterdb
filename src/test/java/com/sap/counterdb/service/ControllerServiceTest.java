@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sap.counterdb.data.ControllerData;
 
 @RunWith(SpringRunner.class)
@@ -46,14 +45,14 @@ public class ControllerServiceTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testGetCustomerInfoByLineIdWithSuccess() {
-		String input = "5";
+	
 		Mockito.when(AdapterserviceTestContextConfiguration.restTemplate.getForObject(any(String.class),
-				any(Class.class), any(String.class), any(String.class), any(String.class))).thenReturn(input);
+				any(Class.class), any(String.class), any(String.class), any(String.class))).thenReturn(new ControllerData("5"));
 
 		String namespace = "abcd";
 		String labelkey = "db";
 		String labelValue = "db";
 		ControllerData output = customControllerService.getControllerInfo(namespace, labelkey, labelValue);
-		assertThat(output.getDeploymentCount()).isEqualTo(input);
+		assertThat(output.getDeploymentCount()).isEqualTo("5");
 	}
 }
